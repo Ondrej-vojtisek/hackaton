@@ -1,0 +1,41 @@
+{
+    "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+    "spaces": 4,
+    "generator-cli": {
+        "version": "6.3.0",
+        "generators": {
+            "typescript-fetch-local": {
+                "generatorName": "typescript-fetch",
+                "inputSpec": "http://localhost:8080/v3/api-docs",
+                "output": "openapi",
+                "typeMappings": {
+                    "set": "Array",
+                    "Date": "string"
+                },
+                "additionalProperties": {
+                    "withoutRuntimeChecks": true,
+                    "supportsES6": true,
+                    "withInterfaces": true,
+                    "stringEnums": true,
+                    "typescriptThreePlus": true
+                }
+            },
+            "typescript-fetch-dev": {
+                "generatorName": "typescript-fetch",
+                "inputSpec": "[TODO_FILL_DEV_URL_ADDRESS]/v3/api-docs",
+                "output": "openapi",
+                "typeMappings": {
+                    "set": "Array",
+                    "Date": "string"
+                },
+                "additionalProperties": {
+                    "withoutRuntimeChecks": true,
+                    "supportsES6": true,
+                    "withInterfaces": true,
+                    "stringEnums": true,
+                    "typescriptThreePlus": true
+                }
+            }
+        }
+    }
+}

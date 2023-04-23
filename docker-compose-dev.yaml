@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  client:
+    image: PLACEHOLDER/esg-client:latest
+    container_name: esg-client
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+  
+  server:
+    image: PLACEHOLDER/esg-server:latest
+    build:
+      dockerfile: server/Dockerfile-dev
+      context: .
+    container_name: esg-server
+    hostname: restapi
+    ports:
+      - "8181:8181"
+      - "8001:8001"
+    depends_on:
+      - postgres
+    environment:
+      LOG_LEVEL_esg: DEBUG
+      ESG_API_OPENAIURL: https://api.openai.com/v1/chat/completions
+      ESG_API_CONNECTIONTIMEOUT: 10s
+      ESG_API_READTIMEOUT: 15s
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    hostname: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: root
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:
+    driver: local
+

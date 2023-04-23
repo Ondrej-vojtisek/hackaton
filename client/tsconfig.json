@@ -1,0 +1,52 @@
+{
+    "include": ["./src"],
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "noEmit": true,
+        "jsx": "preserve",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "skipLibCheck": true,
+        "strict": true,
+        "isolatedModules": true,
+        "importsNotUsedAsValues": "error",
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "baseUrl": "./src",
+        "paths": {
+            "src/assets/*": ["./assets/*"],
+            "src/app": [
+                "./app"
+            ],
+            "src/types": [
+                "./types"
+            ],
+            "src/errorHandling": [
+                "./core/errorHandling"
+            ],
+            "src/utils": [
+                "./core/utils"
+            ],
+            "src/app/*": [
+                "./app/*"
+            ],
+            "src/setup": [
+                "./setup"
+            ],
+            "src/listenerMiddleware": [
+                "./setup/typedListenerMiddleware"
+            ],
+            "src/serverApi": [
+                "./core/serverApi"
+            ],
+            "src/modals": [
+                "./core/modals"
+            ]
+        }
+    }
+}

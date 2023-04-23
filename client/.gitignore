@@ -1,0 +1,14 @@
+# InteliJ IDEA
+.idea
+*.iml
+
+node_modules
+proxy.json
+.eslintcache
+build
+dist
+coverage
+
+out/
+
+.DS_Store

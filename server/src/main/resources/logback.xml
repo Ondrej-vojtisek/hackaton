@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="60 seconds">
+
+    <property scope="context" name="LOG_DIR" value="${LOG_HOME:-./log}"/>
+
+    <!-- STDOUT -->
+    <appender name="APPENDER_STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %date{dd.MM.yyyy;HH:mm:ss.SSS} %level [ESG] [%thread] - %msg [%class:%line] %n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- FILE -->
+    <appender name="APPENDER_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/simulator.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+                %date{dd.MM.yyyy;HH:mm:ss.SSS} %level [ESG] [%thread] - %msg [%class:%line] %n
+            </pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/simulator-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+            <maxHistory>${MAX_HISTORY:-10}</maxHistory>
+            <maxFileSize>${MAX_FILE_SIZE:-10MB}</maxFileSize>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="cz.moro.hackaton" additivity="false" level="${LOG_LEVEL_esg:-INFO}">
+        <appender-ref ref="APPENDER_${LOG_OUTPUT:-STDOUT}"/>
+    </logger>
+
+    <root level="${LOG_LEVEL_root:-INFO}">
+        <appender-ref ref="APPENDER_${LOG_OUTPUT:-STDOUT}"/>
+    </root>
+</configuration>

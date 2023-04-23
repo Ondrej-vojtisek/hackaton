@@ -1,0 +1,86 @@
+{
+  "entryReference": "76357428182",
+  "amount": {
+    "value": 300000.00,
+    "currency": "CZK"
+  },
+  "creditDebitIndicator": "DBIT",
+  "reversalIndicator": false,
+  "status": "BOOK",
+  "bookingDate": {
+    "date": "2023-04-13"
+  },
+  "valueDate": {
+    "date": "2023-04-13"
+  },
+  "bankTransactionCode": {
+    "proprietary": {
+      "code": "90000101000",
+      "issuer": "CNB"
+    }
+  },
+  "entryDetails": {
+    "transactionDetails": {
+      "references": {
+        "clearingSystemReference": "MLOAEXPREPAY"
+      },
+      "amountDetails": {
+        "instructedAmount": {
+          "amount": {
+            "value": 300.00,
+            "currency": "CZK"
+          }
+        }
+      },
+      "relatedParties": {
+        "debtorAccount": {
+          "identification": {
+            "iban": "CZ5730300000001939855022",
+            "other": {
+              "identification": "1939855022/3030"
+            }
+          },
+          "currency": "CZK",
+          "name": "Osobní"
+        },
+        "creditor": {
+          "name": "AirBank, a. s.",
+          "postalAddress": {
+            "addressLine": "www.cd.cz/eshop/, Praha 1, 11016"
+          }
+        }
+      },
+      "relatedAgents": {
+        "debtorAgent": {
+          "financialInstitutionIdentification": {
+            "bic": "AIRACZPP",
+            "clearingSystemMemberIdentification": {
+              "memberIdentification": "3030"
+            },
+            "name": "Air Bank a.s.",
+            "postalAddress": {
+              "addressLine": "Evropská 2690/17, 160 00 Praha 6"
+            },
+            "other": {}
+          }
+        },
+        "creditorAgent": {
+          "financialInstitutionIdentification": {
+            "clearingSystemMemberIdentification": {
+              "memberIdentification": "3030"
+            },
+            "name": "Air Bank a.s.",
+            "postalAddress": {
+              "addressLine": "EVROPSKA 2690/17 16000 PRAGUE"
+            },
+            "other": {}
+          }
+        }
+      },
+      "remittanceInformation": {
+        "unstructured": "messageForSender:Hypo Bezdíčkova"
+      },
+      "additionalTransactionInformation": "Úhrada do rezervy"
+    }
+  }
+}

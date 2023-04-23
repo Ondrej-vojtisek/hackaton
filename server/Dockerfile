@@ -1,0 +1,13 @@
+FROM amazoncorretto:17
+
+WORKDIR /root
+
+#RUN yum update -y
+#RUN yum install telnet -y
+
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+
+ENV DEBUG_PORT=*:8001
+
+ENTRYPOINT ["/bin/bash", "-c", "java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=${DEBUG_PORT} -jar app.jar"]
